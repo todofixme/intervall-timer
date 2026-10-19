@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+/* Design tokens: light by default, dark via the system setting.
+   Tailwind classes reference them, e.g. bg-bg, text-muted, border-line, text-work. */
+:root {
+  --bg: #f3f4f1;
+  --fg: #15191c;
+  --muted: #5f676c;
+  --line: #d9ddd8;
+  --surface: #ffffff;
+  --work: #d4461f;
+  --warn: #c98a00;
+  --pause: #1f6fd4;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111416;
+    --fg: #eef0ee;
+    --muted: #9aa3a8;
+    --line: #2a3034;
+    --surface: #1a1f22;
+    --work: #ff6a3d;
+    --warn: #f2b632;
+    --pause: #5c9dff;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-work: var(--work);
+  --color-warn: var(--warn);
+  --color-pause: var(--pause);
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+    env(safe-area-inset-left, 0px);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--pause);
+  outline-offset: 2px;
+}
